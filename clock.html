@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clock</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/led-digital-7');
+
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'LED Digital 7' sans-serif;
+        }
+
+        body{
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            min-height: 100vh;
+            background: #17202A;
+        }
+
+
+        .container{
+            
+            position: relative;
+            min-height: 380px;
+            border-radius: 20px;
+            border-top-right-radius: 250px;
+            border-top-left-radius: 250px;
+            background-color: #17202A;
+            box-shadow: 10px 15px 80px rgb(0, 0, 0);
+            flex-direction: column;
+        }
+
+        .clock{
+            font-family: 'LED Digital 7';
+            position: relative;
+            width: 260px;
+            height: 260px;
+            border-radius: 500px;
+            background: #17202A;
+            box-shadow: 10px 15px 80px rgb(0, 0, 0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+            
+
+           }
+
+           .clock::before{
+            content: '';
+            position: absolute;
+            width: 230px;
+            height: 230px;
+            border-radius: 50%;
+            background: #17202A;
+            border: 1px dashed rgb(124, 252, 0);
+            box-shadow: 0 0 3px rgb(128, 255, 0);
+            
+            
+           }
+
+          
+             
+              
+           .clock span{
+            position: absolute;
+            text-align: center;
+            inset: 20px;
+            color: rgb(124, 252, 0);
+            transform: rotate(calc(30deg*var(--1)));
+            text-shadow: 0 0 8px rgb(128, 255, 0);
+            }
+
+            .clock span b{ 
+                opacity: 0.80;
+                font-size: 0.55cm;
+                display: inline-block;
+                transform: rotate(calc(-30deg*var(--1)));
+            }
+
+            
+
+            .circle{
+                position: absolute;
+                width: 8px;
+                height: 8px;
+                background: rgb(124, 252, 0);
+                border: 1px dashed rgb(124, 252, 0);
+                box-shadow: 0 0 3px rgb(128, 255, 0);
+                border-radius: 500px;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                
+            }
+          
+            .circle2{
+                position: absolute;
+                width: 80px;
+                height: 80px;
+                background: none;
+                border: 1px dashed rgb(124, 252, 0);
+                box-shadow: 0 0 3px rgb(128, 255, 0);
+                border-radius: 500px;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                
+            }
+
+            .circle3{
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                background: none;
+                border: 1px dashed rgb(124, 252, 0);
+                box-shadow: 0 0 3px rgb(128, 255, 0);
+                border-radius: 500px;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                
+            }
+           
+            .hand{        
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+
+                }
+                        
+            .handhr i{
+                position: absolute;
+                background: linear-gradient(190deg, rgb(124, 252, 0) 3.1%, rgb(5,12,21) 30.5%);
+                width: 7px;
+                height: 58px;
+                border-radius: 10px;
+                border-top-right-radius: 190%;
+                border-top-left-radius: 190%;
+               
+                }
+                        
+             .handmin i{
+                position: absolute;
+                background: linear-gradient(190deg, rgb(124, 252, 0) 3.1%, rgb(5,12,21) 30.5%);
+                border-radius: 10px;
+                width: 4px;
+                height: 85px ;
+                border-top-right-radius: 180%;
+                border-top-left-radius: 180%;
+             }
+             .handsec i{
+            
+                position: absolute;
+                background: linear-gradient(190deg, rgb(124, 252, 0) 3.1%, rgb(5,12,21) 30.5%) ;
+                border-radius: 10px;
+                width: 8px;
+                height: 70px ;
+                border-top-right-radius: 150%;
+                border-top-left-radius: 150%;
+                
+             }
+              
+
+
+             #digital{
+                font-family: 'LED Digital 7';
+                background: #17202A;
+                margin: 20px;
+                display: flex;
+                justify-content: center;
+                padding: 10px 20px;
+                font-size: 0.6cm;
+                box-shadow: 8px 13px 30px rgb(0, 0, 0);
+                border-radius: 20px;
+                }
+
+                #digital div{
+                    position: relative;
+                    width: 44px;
+                    text-align: center;
+                    color: var(--clr);
+                    text-shadow: 0 0 3px rgb(128, 255, 0);
+                }
+
+                #digital div:nth-child(1)::after,
+                #digital div:nth-child(2)::after
+                {
+
+                    content: ':';
+                    right: -3px;
+                    top: -1px;
+                    position: absolute;
+                    text-align: center;
+                }
+                #digital div:nth-child(1)::after,
+                #digital div:nth-child(2)::after{
+                    animation: animate 1s steps(1) infinite;
+                }
+
+                @keyframes animate{
+                    0%{
+                        opacity: 1;
+                    }
+                    50%{
+                        opacity: 0;
+                    }
+                }
+               
+
+                .sign{
+                    
+                    rotate: -90deg;
+                    color: aliceblue;
+                    
+                    width: 40px;
+                    
+                    opacity: 0.20;
+                    letter-spacing: 0.1cm;
+                   
+                    
+                  
+
+                }
+    </style>
+</head>
+<body>
+     <div class="sign">
+    <p c>NurNaharIslam</p>
+   </div> 
+    <div class="container">
+       
+        <div class="clock">
+           
+            
+            
+           
+
+
+           
+            
+            <div class="circle2"></div>
+            <div class="circle3" ></div>
+
+
+            <div style="--clr: #050c15;" class="hand handsec" id="sec"><i></i></div>
+            <div style="--clr: #050c15;" class="hand handmin" id="min"><i></i></div>
+            <div style="--clr: #050c15;" class="hand handhr" id="hr"><i></i></div>
+            
+            
+
+
+
+            <div class="circle"></div>
+            <span style="--1:1;"><b>1</b></span>
+            <span style="--1:2;"><b>2</b></span>
+            <span style="--1:3;"><b>3</b></span>
+            <span style="--1:4;"><b>4</b></span>
+            <span style="--1:5;"><b>5</b></span>
+            <span style="--1:6;"><b>6</b></span>
+            <span style="--1:7;"><b>7</b></span>
+            <span style="--1:8;"><b>8</b></span>
+            <span style="--1:9;"><b>9</b></span>
+            <span style="--1:10;"><b>10</b></span>
+            <span style="--1:11;"><b>11</b></span>
+            <span style="--1:12;"><b>12</b></span>
+        </div>
+
+        <div id="digital">
+            <div style="--clr:rgb(124, 252, 0);"  id="hour">00</div>
+            <div style="--clr:rgb(124, 252, 0);" id="minute">00</div>
+            <div style="--clr:rgb(124, 252, 0);" id="second">00</div>
+            <div style="--clr:rgb(124, 252, 0);" id="ampm">AM</div>
+
+        </div>
+
+        
+    </div>
+
+
+
+
+
+
+    <script>
+        const deg=6;
+        const hr= document.querySelector('#hr');
+        const min= document.querySelector('#sec');
+        const sec= document.querySelector('#min');
+
+    setInterval(() => {
+
+        let day = new Date();
+        let hh = day.getHours() *30;
+        let mm = day.getMinutes() * deg;
+        let ss = day.getSeconds() * deg;
+
+        hr.style.transform = `rotateZ(${(hh)+(mm/12)}deg)`;
+        min.style.transform = `rotateZ(${mm}deg)`;
+        sec.style.transform = `rotateZ(${ss}deg)`;
+
+    })
+
+    function clock(){
+        
+    
+
+    let hour= document.getElementById('hour');
+    let minute= document.getElementById('minute');
+    let seconds= document.getElementById('second');
+    let ampm= document.getElementById('ampm');
+
+    let h= new Date().getHours();
+    let m= new Date().getMinutes();
+    let s= new Date().getSeconds();
+
+    let am = h>=12 ? "PM" : "AM"
+
+    if (h>12){
+        h=h-12;
+    }
+
+
+
+    h = (h<10) ? '0' + h:h
+    m = (m<10) ? '0' + m:m
+    s = (s<10) ? '0' + s:s
+
+
+
+    hour.innerHTML = h;
+    minute.innerHTML = m;
+    seconds.innerHTML = s;
+    ampm.innerHTML = am;
+}
+
+    var interval = setInterval(clock)
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
